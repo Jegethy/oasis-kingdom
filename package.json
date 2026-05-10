@@ -1,0 +1,14 @@
+{
+  "name": "oasis-kingdom",
+  "version": "1.0.0",
+  "description": "The official landing page of Oasis Kingdom",
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "dependencies": {
+    "astro": "^4.13.0"
+  }
+}

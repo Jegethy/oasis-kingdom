@@ -1,0 +1,317 @@
+/* Global styles for Oasis Kingdom landing page */
+
+:root {
+  /* Color palette */
+  --color-dark-charcoal: #0E1016;
+  --color-dark-umber: #24160D;
+  --color-desert-sand: #D8B56D;
+  --color-antique-gold: #C9973A;
+  --color-warm-parchment: #F3E0B8;
+  --color-muted-bronze: #8A6233;
+  --color-oasis-teal: #2BAE9F;
+
+  /* Typography */
+  --font-title: 'Cinzel Decorative', 'Cinzel', 'Marcellus SC', 'Almendra SC', serif;
+  --font-body: 'Inter', 'Source Sans 3', system-ui, -apple-system, sans-serif;
+
+  /* Spacing */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 1.5rem;
+  --spacing-lg: 2rem;
+  --spacing-xl: 3rem;
+  --spacing-2xl: 4rem;
+}
+
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  background: linear-gradient(135deg, var(--color-dark-charcoal) 0%, var(--color-dark-umber) 100%);
+  color: var(--color-warm-parchment);
+  line-height: 1.6;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Subtle animated background pattern */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image:
+    radial-gradient(2px 2px at 20% 30%, var(--color-antique-gold), transparent),
+    radial-gradient(2px 2px at 60% 70%, var(--color-oasis-teal), transparent),
+    radial-gradient(1px 1px at 50% 50%, var(--color-desert-sand), transparent);
+  background-size: 200% 200%;
+  background-repeat: repeat;
+  opacity: 0.03;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-title);
+  letter-spacing: 0.05em;
+}
+
+p {
+  color: var(--color-warm-parchment);
+}
+
+/* Links */
+a {
+  color: var(--color-oasis-teal);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  outline-offset: 2px;
+}
+
+a:hover,
+a:focus-visible {
+  color: var(--color-desert-sand);
+  text-decoration: underline;
+}
+
+a:focus-visible {
+  outline: 2px solid var(--color-oasis-teal);
+}
+
+/* Container */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+}
+
+/* Header / Hero Section */
+header {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: var(--spacing-2xl) var(--spacing-md);
+  background: linear-gradient(
+    180deg,
+    rgba(14, 16, 22, 0.8) 0%,
+    rgba(36, 22, 13, 0.6) 50%,
+    rgba(14, 16, 22, 0.8) 100%
+  );
+}
+
+/* Decorative elements */
+header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image:
+    linear-gradient(45deg, transparent 48%, var(--color-antique-gold) 49%, var(--color-antique-gold) 51%, transparent 52%),
+    linear-gradient(-45deg, transparent 48%, var(--color-antique-gold) 49%, var(--color-antique-gold) 51%, transparent 52%);
+  background-size: 60px 60px;
+  background-position: 0 0, 30px 30px;
+  opacity: 0.02;
+  pointer-events: none;
+}
+
+.hero {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.hero h1 {
+  font-size: clamp(2.5rem, 10vw, 4.5rem);
+  color: var(--color-desert-sand);
+  text-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  margin-bottom: var(--spacing-lg);
+  letter-spacing: 0.1em;
+  line-height: 1.1;
+}
+
+.hero .tagline {
+  font-size: clamp(1rem, 3vw, 1.5rem);
+  color: var(--color-oasis-teal);
+  margin-bottom: var(--spacing-md);
+  font-style: italic;
+  letter-spacing: 0.02em;
+}
+
+.hero .supporting-line {
+  font-size: clamp(0.875rem, 2vw, 1.125rem);
+  color: var(--color-warm-parchment);
+  margin-bottom: var(--spacing-2xl);
+  opacity: 0.95;
+}
+
+/* Social links */
+.social-links {
+  display: flex;
+  gap: var(--spacing-md);
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: var(--spacing-2xl);
+}
+
+.social-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: rgba(201, 151, 58, 0.1);
+  border: 2px solid var(--color-antique-gold);
+  color: var(--color-desert-sand);
+  font-size: 1.25rem;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.social-link:hover,
+.social-link:focus-visible {
+  background-color: var(--color-antique-gold);
+  color: var(--color-dark-charcoal);
+  transform: translateY(-2px);
+}
+
+.social-link svg {
+  width: 24px;
+  height: 24px;
+}
+
+/* Footer */
+footer {
+  border-top: 1px solid rgba(201, 151, 58, 0.2);
+  padding: var(--spacing-2xl) var(--spacing-md);
+  text-align: center;
+  color: var(--color-muted-bronze);
+  font-size: 0.875rem;
+  background-color: rgba(14, 16, 22, 0.5);
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+  align-items: center;
+}
+
+.footer-credit {
+  color: var(--color-muted-bronze);
+}
+
+.footer-links {
+  display: flex;
+  gap: var(--spacing-md);
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.footer-links a {
+  color: var(--color-oasis-teal);
+  font-size: 0.875rem;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: var(--color-desert-sand);
+}
+
+/* Accessibility */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background-color: var(--color-oasis-teal);
+  color: var(--color-dark-charcoal);
+  padding: var(--spacing-sm) var(--spacing-md);
+  text-decoration: none;
+  border-radius: 0 0 4px 0;
+  z-index: 100;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  :root {
+    --spacing-2xl: 3rem;
+  }
+
+  .hero h1 {
+    margin-bottom: var(--spacing-md);
+  }
+
+  .social-links {
+    gap: var(--spacing-sm);
+    margin-top: var(--spacing-lg);
+  }
+
+  .social-link {
+    width: 44px;
+    height: 44px;
+    font-size: 1rem;
+  }
+
+  header {
+    min-height: 100vh;
+    padding: var(--spacing-lg) var(--spacing-md);
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --spacing-lg: 1.5rem;
+    --spacing-2xl: 2rem;
+  }
+
+  .hero h1 {
+    margin-bottom: var(--spacing-md);
+  }
+
+  .hero .supporting-line {
+    margin-bottom: var(--spacing-lg);
+  }
+
+  footer {
+    padding: var(--spacing-lg) var(--spacing-md);
+  }
+
+  .footer-links {
+    flex-direction: column;
+    gap: var(--spacing-sm);
+  }
+}
+
+/* Print styles */
+@media print {
+  header::before {
+    display: none;
+  }
+
+  .social-links {
+    display: none;
+  }
+}
